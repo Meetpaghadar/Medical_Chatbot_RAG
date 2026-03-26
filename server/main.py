@@ -1,6 +1,12 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from middlewares.exception_handlers import catch_exception_middleware
+
+# Some Windows environments set SSLKEYLOGFILE to a protected path.
+# aiohttp initializes SSL on import and can fail with PermissionError.
+os.environ.pop("SSLKEYLOGFILE", None)
+
 from routes.upload_pdfs import router as upload_router
 from routes.ask_question import router as ask_router
 

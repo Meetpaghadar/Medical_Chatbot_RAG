@@ -1,5 +1,5 @@
+from langchain_classic.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
@@ -7,11 +7,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_MODEL_NAME = os.getenv("GROQ_MODEL_NAME", "llama-3.3-70b-versatile")
 
 def get_llm_chain(retriever):
     llm = ChatGroq(
         groq_api_key=GROQ_API_KEY,
-        model_name="llama3-70b-8192"
+        model_name=GROQ_MODEL_NAME
     )
 
     prompt = PromptTemplate(

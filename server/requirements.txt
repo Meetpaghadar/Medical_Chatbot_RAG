@@ -8,6 +8,7 @@ langchain
 langchain-community
 langchain-core
 langchain-groq
+langchain-text-splitters
 
 # Vectorstore
 # chromadb
@@ -19,7 +20,7 @@ pinecone
 langchain-google-genai
 
 # PDF Parsing
-PyPDF  # backend for PyPDFLoader via langchain_community
+pypdf  # backend for PyPDFLoader via langchain_community
 
 # Environment Variables
 python-dotenv
